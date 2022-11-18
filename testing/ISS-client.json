@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "f1582b05-a014-414a-aa40-a6ce40e6d261",
+		"name": "Integración de Sistemas y Servicios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12168966"
+	},
+	"item": [
+		{
+			"name": "Obtener Personas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_HOST}}/personas?dpto=false",
+					"protocol": "http",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"personas"
+					],
+					"query": [
+						{
+							"key": "dpto",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Proyectos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_HOST}}/proyectos",
+					"protocol": "http",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"proyectos"
+					],
+					"query": [
+						{
+							"key": "aceptado",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "tipo",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Reuniones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_HOST}}/reuniones?orden=desc",
+					"protocol": "http",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"reuniones"
+					],
+					"query": [
+						{
+							"key": "orden",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Reuniones de un Proyecto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_HOST}}/proyectos/2/reuniones",
+					"protocol": "http",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"proyectos",
+						"2",
+						"reuniones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Reuniones de una Persona",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_HOST}}/personas/87962738M/reuniones",
+					"protocol": "http",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"personas",
+						"87962738M",
+						"reuniones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir una nueva Persona",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dni\": \"46729638K\", \n    \"nombre\": \"Margarita\", \n    \"apellidos\": \"Olmo Navarro\", \n    \"telefono\": \"657839256\", \n    \"email\": \"molmo@agenciacontratacion.net\", \n    \"departamento\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{BASE_HOST}}/personas",
+					"protocol": "http",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"personas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir un nuevo Proyecto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"identificador\": 4,\n    \"entrada\": 1668294249,\n    \"personas\": [\n        \"46729638K\"\n    ],\n    \"genero\": \"Reggae\",\n    \"tipo\": 2,\n    \"aceptado\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{BASE_HOST}}/proyectos",
+					"protocol": "http",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"proyectos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar el estado de un Proyecto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"aceptado\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{BASE_HOST}}/proyectos/1",
+					"protocol": "http",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"proyectos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Reunión de un Proyecto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_HOST}}/proyectos/2/reuniones/3",
+					"protocol": "http",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"proyectos",
+						"2",
+						"reuniones",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Persona de una Reunión",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_HOST}}/reuniones/2/personas/87962738M",
+					"protocol": "http",
+					"host": [
+						"{{BASE_HOST}}"
+					],
+					"path": [
+						"reuniones",
+						"2",
+						"personas",
+						"87962738M"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_HOST",
+			"value": "localhost:8000",
+			"type": "string"
+		}
+	]
+}
